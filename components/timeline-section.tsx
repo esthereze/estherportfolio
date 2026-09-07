@@ -4,28 +4,44 @@ import { useState } from 'react'
 
 const milestones = [
   {
-    period: '2019 — 2021',
-    title: 'Blogging & Custom HTML/CSS',
-    tag: 'The Foundation',
+    period: 'Chapter 01',
+    title: 'Beauty Blogging',
+    tag: 'Where it started',
     description:
-      'Started by hand-crafting blogs with custom HTML and CSS. This is where I learned to structure content, obsess over layout, and speak fluently in the web platform.',
-    highlights: ['Semantic HTML', 'Responsive CSS', 'Content-first design'],
+      'I found my voice writing about beauty — reviews, routines, and recommendations. This is where I learned to write for real people and keep them reading.',
+    highlights: ['Beauty niche', 'Writing for an audience', 'Consistency'],
   },
   {
-    period: '2022 — 2023',
+    period: 'Chapter 02',
+    title: 'My First Tech Article',
+    tag: 'A new curiosity',
+    description:
+      'I stepped outside my comfort zone and wrote a single blog in the tech niche. It was just one piece, but it opened the door to a whole different world.',
+    highlights: ['Tech niche', 'One brave first step', 'New territory'],
+  },
+  {
+    period: 'Chapter 03',
+    title: 'Basic HTML & CSS',
+    tag: 'Learning to build',
+    description:
+      'I started putting pages together with HTML and CSS. I am not a full-on developer — I lean on research when I get stuck — but I can build and style simple layouts on my own.',
+    highlights: ['HTML', 'CSS', 'Learning by research'],
+  },
+  {
+    period: 'Chapter 04',
     title: 'Technical Writing',
-    tag: 'Clarity as a craft',
+    tag: 'Explaining the product',
     description:
-      'Moved into technical writing, translating complex systems into documentation people actually enjoy reading. Learned to make the complicated feel obvious.',
-    highlights: ['Developer docs', 'Style guides', 'Information architecture'],
+      'I moved into technical writing focused on describing how an app works for its users — clear product and feature explanations, not deep API documentation.',
+    highlights: ['App & feature docs', 'Clear explanations', 'User-focused'],
   },
   {
-    period: '2025 — Present',
+    period: 'Chapter 05',
     title: 'Data Analysis',
-    tag: 'The Narrative',
+    tag: 'Where I am now',
     description:
-      'Now I analyze data and turn it into narrative — combining SQL, Python, and BI tooling with a writer’s instinct for what the numbers are really saying.',
-    highlights: ['SQL & Python', 'Dashboards', 'Data storytelling'],
+      'Right now I am learning to make sense of data. I work at a foundational level with Excel, MySQL, Tableau and Power BI — enough to pull, shape, and visualize data, with plenty more to grow into.',
+    highlights: ['Excel', 'MySQL', 'Tableau', 'Power BI'],
   },
 ]
 
@@ -37,9 +53,9 @@ export function TimelineSection() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 max-w-2xl">
           <p className="mb-3 font-mono text-sm text-primary">// the journey</p>
-          <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">A career that compounds</h2>
+          <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">One step at a time</h2>
           <p className="mt-4 text-pretty text-muted-foreground">
-            Each chapter built on the last — from writing code, to writing docs, to writing with data.
+            Every chapter taught me something the next one needed. Tap any point to explore it.
           </p>
         </div>
 
@@ -57,7 +73,7 @@ export function TimelineSection() {
                   <span
                     className={`absolute -left-[6.5px] top-1.5 h-3 w-3 rounded-full border-2 transition-colors ${
                       isActive
-                        ? 'border-primary bg-primary'
+                        ? 'neon-glow border-primary bg-primary'
                         : 'border-border bg-background group-hover:border-primary'
                     }`}
                     aria-hidden="true"
