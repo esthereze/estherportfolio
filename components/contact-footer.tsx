@@ -4,9 +4,12 @@ import type React from 'react'
 import { useState } from 'react'
 
 const socials = [
-  { label: 'GitHub', href: 'https://github.com/esthereze' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/esther-tech' },
-  { label: 'Medium', href: 'https://medium.com/@esther-eze' },
+  // INSERT GITHUB LINK HERE
+  { label: 'GitHub', href: '#' },
+  // INSERT LINKEDIN LINK HERE
+  { label: 'LinkedIn', href: '#' },
+  // INSERT MEDIUM LINK HERE
+  { label: 'Medium', href: '#' },
 ]
 
 export function ContactFooter() {
@@ -34,8 +37,6 @@ export function ContactFooter() {
               <a
                 key={label}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="rounded-md border border-border px-4 py-2.5 font-mono text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
                 {label}

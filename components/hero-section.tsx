@@ -14,46 +14,41 @@ export function HeroSection() {
       />
       <div className="relative mx-auto max-w-6xl">
         <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 font-mono text-xs tracking-wide text-primary">
-          <span className="neon-glow inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-primary" aria-hidden="true" />
-          A work in progress &middot; and proud of it
+          <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-primary" aria-hidden="true" />
+          Data Analyst &middot; Technical Writer &middot; Frontend
         </p>
         <h1 className="max-w-4xl text-balance text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-          Still <span className="text-primary neon-text">learning</span>, always{' '}
-          <span className="text-primary neon-text">building.</span>
+          Where Data Meets <span className="text-primary">Narrative.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-          This is my journey so far &mdash; from writing beauty blogs, to my first tech article, to piecing together
-          web pages with HTML and CSS, to writing about apps, to making sense of data with Excel, MySQL, Tableau and
-          Power BI. I&apos;m not an expert in any one thing yet, and that&apos;s the point: this is a map of where
-          I&apos;ve been and where I&apos;m headed.
+          I&apos;m a multi-disciplinary tech professional bridging the gap between data analysis, technical writing, and
+          frontend layout &mdash; turning raw numbers into clear stories and clean, well-documented interfaces.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
-            href="#journey"
-            className="neon-glow rounded-md bg-primary px-6 py-3 font-mono text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            href="#work"
+            className="rounded-md bg-primary px-6 py-3 font-mono text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
-            Follow the journey
+            View my work
           </a>
           <a
-            href="#work"
+            href="#journey"
             className="rounded-md border border-border px-6 py-3 font-mono text-sm font-medium text-foreground transition-colors hover:bg-secondary"
           >
-            See what I&apos;ve made
+            My journey
           </a>
         </div>
 
         <dl className="mt-16 grid max-w-2xl grid-cols-3 gap-8 border-t border-border pt-8">
           {[
-            { value: '5', label: 'Chapters in the journey' },
-            { value: '4', label: 'Data tools I use' },
-            { value: '1', label: 'Curiosity that keeps growing' },
+            { value: '6+', label: 'Years across the stack' },
+            { value: '3', label: 'Disciplines mastered' },
+            { value: '∞', label: 'Stories in the data' },
           ].map((stat) => (
             <div key={stat.label}>
               <dt className="sr-only">{stat.label}</dt>
               <dd>
-                <span className="block font-mono text-3xl font-bold text-primary neon-text md:text-4xl">
-                  {stat.value}
-                </span>
+                <span className="block font-mono text-3xl font-bold text-primary md:text-4xl">{stat.value}</span>
                 <span className="mt-1 block text-sm text-muted-foreground">{stat.label}</span>
               </dd>
             </div>
