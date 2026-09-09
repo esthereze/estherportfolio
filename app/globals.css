@@ -41,19 +41,19 @@
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.23 0.015 250);
   --popover-foreground: oklch(0.98 0 0);
-  /* Emerald accent */
-  --primary: oklch(0.76 0.16 162);
-  --primary-foreground: oklch(0.19 0.014 250);
+  /* Shiny neon green accent */
+  --primary: oklch(0.88 0.26 145);
+  --primary-foreground: oklch(0.16 0.014 250);
   --secondary: oklch(0.28 0.015 250);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.28 0.015 250);
   --muted-foreground: oklch(0.7 0.01 250);
-  --accent: oklch(0.76 0.16 162);
-  --accent-foreground: oklch(0.19 0.014 250);
+  --accent: oklch(0.88 0.26 145);
+  --accent-foreground: oklch(0.16 0.014 250);
   --destructive: oklch(0.62 0.2 25);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.76 0.16 162);
+  --ring: oklch(0.88 0.26 145);
   --radius: 0.625rem;
 }
 
@@ -63,5 +63,20 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Neon green glow for text accents */
+  .neon-text {
+    text-shadow:
+      0 0 4px oklch(0.88 0.26 145 / 60%),
+      0 0 16px oklch(0.88 0.26 145 / 40%);
+  }
+  /* Neon green glow for filled elements (buttons, dots) */
+  .neon-glow {
+    box-shadow:
+      0 0 6px oklch(0.88 0.26 145 / 55%),
+      0 0 20px oklch(0.88 0.26 145 / 35%);
   }
 }
