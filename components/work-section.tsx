@@ -1,49 +1,67 @@
 // ─────────────────────────────────────────────────────────────────────────
 // EDIT YOUR WORK HERE
-// For each item, paste your live URL into `href`. Leave it as "" and the card
-// shows a quiet "Coming soon" state instead of a broken link — safe to ship.
-// Add or remove items freely; the grid adjusts automatically.
+// Each item can have any number of links. Paste your live URLs into `links`.
+// Leave `links` empty ([]) and the card shows a quiet status badge instead of
+// a broken link — safe to ship. Add or remove items freely.
 // ─────────────────────────────────────────────────────────────────────────
-const projects = [
+type ProjectLink = { label: string; href: string }
+type Project = {
+  kind: string
+  title: string
+  description: string
+  tags: string[]
+  links: ProjectLink[]
+  status?: string // shown when there are no links (defaults to "Coming soon")
+}
+
+const projects: Project[] = [
   {
     kind: 'Beauty Blogging',
-    title: 'Beauty niche writing',
+    title: 'Where the writing started',
     description:
-      'Where the writing habit started — reviews, routines, and product breakdowns written for real readers in the beauty space.',
+      'My first writing home was the beauty niche — reviews, routines, and product breakdowns for real readers. The blog is old and no longer accessible, but it is where the habit was built.',
     tags: ['Writing', 'Beauty', 'SEO'],
-    href: '', // INSERT your beauty blog URL
+    links: [],
+    status: 'Archived — no longer live',
   },
   {
-    kind: 'Tech Writing',
-    title: 'My first tech article',
+    kind: 'Content Writing',
+    title: 'Articles on Medium',
     description:
-      'A single step out of the beauty niche and into tech — proof I can pick up an unfamiliar subject and explain it clearly.',
-    tags: ['Writing', 'Tech'],
-    href: '', // INSERT your tech article URL
+      'My ongoing writing lives on Medium — from beauty beginnings to my step into tech. Proof I can pick up an unfamiliar subject and explain it clearly.',
+    tags: ['Writing', 'Content', 'Medium'],
+    links: [{ label: 'Read on Medium', href: 'https://medium.com/@esther-eze' }],
+  },
+  {
+    kind: 'Technical Writing',
+    title: 'Describing what an app does',
+    description:
+      'Documentation and articles that explain how an app and its features work — written for people, not as API reference. Paired with Fylo, a landing page I built to understand the product I was describing.',
+    tags: ['Docs', 'Product', 'HTML', 'CSS'],
+    links: [
+      { label: 'Read on Medium', href: 'https://medium.com/@esther-eze' },
+      // INSERT the exact Fylo repo URL below (e.g. https://github.com/esthereze/fylo-landing-page)
+      { label: 'Fylo repo', href: 'https://github.com/esthereze' },
+    ],
   },
   {
     kind: 'Web Basics',
     title: 'HTML & CSS pages',
     description:
-      'Simple pages I built by hand with HTML and CSS, leaning on research when I got stuck. Not a developer yet — but not afraid of code.',
+      'Simple pages I build by hand with HTML and CSS, leaning on research when I get stuck. Not a developer yet — but not afraid of code.',
     tags: ['HTML', 'CSS', 'Research'],
-    href: '', // INSERT a live page or CodePen link
-  },
-  {
-    kind: 'Technical Writing',
-    title: 'App & feature docs',
-    description:
-      'Documentation that describes what an app does and how to use its features — written for people, not an API reference.',
-    tags: ['Docs', 'Product', 'Clarity'],
-    href: '', // INSERT a writing sample link
+    // INSERT a live page, CodePen, or repo link
+    links: [{ label: 'View on GitHub', href: 'https://github.com/esthereze' }],
   },
   {
     kind: 'Data Analysis',
-    title: 'Excel, SQL & BI dashboards',
+    title: 'Data analytics apprenticeship',
     description:
-      'Turning spreadsheets into answers — basic analysis in Excel and MySQL, visualized in Tableau and Power BI.',
+      'The skills I picked up through my data analytics apprenticeship — turning spreadsheets into answers with Excel and MySQL, then visualizing them in Tableau and Power BI.',
     tags: ['Excel', 'MySQL', 'Tableau', 'Power BI'],
-    href: '', // INSERT a dashboard or workbook link
+    // INSERT a dashboard, workbook, or write-up link when ready
+    links: [],
+    status: 'Samples coming soon',
   },
 ]
 
@@ -57,7 +75,7 @@ export function WorkSection() {
             Pieces of the journey
           </h2>
           <p className="mt-4 text-pretty text-muted-foreground">
-            One sample from each chapter — some live, some still on the way. Drop your links into{' '}
+            One sample from each chapter — some live, some still on the way. Update the links in{' '}
             <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs text-secondary-foreground">
               work-section.tsx
             </code>{' '}
@@ -67,7 +85,7 @@ export function WorkSection() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => {
-            const hasLink = project.href.trim().length > 0
+            const hasLinks = project.links.length > 0
             return (
               <article
                 key={project.title}
@@ -98,19 +116,24 @@ export function WorkSection() {
                   ))}
                 </ul>
 
-                {hasLink ? (
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 self-start rounded-md border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-sm font-medium text-primary shadow-[0_0_20px_-6px_var(--color-primary)] transition-colors hover:bg-primary/20"
-                  >
-                    View
-                    <span aria-hidden="true">→</span>
-                  </a>
+                {hasLinks ? (
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-sm font-medium text-primary shadow-[0_0_20px_-6px_var(--color-primary)] transition-colors hover:bg-primary/20"
+                      >
+                        {link.label}
+                        <span aria-hidden="true">→</span>
+                      </a>
+                    ))}
+                  </div>
                 ) : (
                   <span className="mt-6 inline-flex items-center gap-2 self-start rounded-md border border-dashed border-border px-4 py-2.5 font-mono text-sm text-muted-foreground">
-                    Coming soon
+                    {project.status ?? 'Coming soon'}
                   </span>
                 )}
               </article>
